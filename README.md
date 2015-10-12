@@ -2,9 +2,9 @@
 
 Blog Site!
 
-Maxwell Fishelson: Leader
+Leon Chou: Leader
+Maxwell Fishelson : middleware
 Sean Chu: UX
-Leon Chou: middleware
 
 **
 

@@ -3,10 +3,11 @@
   Welcome!
 {% endblock %}
 {% block body %}
-<h1> Login? </h1>
-<form Method = "POST">
-	Username:<input type = "text" name = "Username"></input>
-	Password:<input type = "text" name = "Password"></input>
+
+<form class="login" Method = "POST">
+  <div> Login? </div>
+	Username:<input type = "text" name = "Username" placeholder="Username"></input><br>
+	Password:<input type = "password" name = "Password" placeholder="Password"></input><br>
 	<input type="submit" name="button" value="Login"></input>
 	<input type="submit" name="button" value="Cancel"></input>
 </form>

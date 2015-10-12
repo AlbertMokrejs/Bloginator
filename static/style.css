@@ -2,8 +2,20 @@ body {
   background-color: #B6B6B4;
 }
 
+div{
+  text-align:center;
+}
+
 .icon{
   padding-left:10px;
   length:50px;
   width:100px;
+}
+
+.login{
+  border: black solid 3px;
+  background-color:white;
+  padding-right:80%;
+  text-align:right;
+  width:20%;;
 }
