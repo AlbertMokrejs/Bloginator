@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, session
-
+import util
 
 app = Flask(__name__)
-app.secret_key = ""
+app.secret_key = "Something"
 
 
 def verify():
-    if session.log:
+    if 'log' in session:
         return session['log'] == 'verified'
     else:
         session['log'] = 'unverified'
@@ -15,15 +15,17 @@ def verify():
 @app.route('/')
 @app.route('/login', methods=["GET","POST"])
 def login():
-    if verify():
-        return redirect(url_for('home'))
-    if request.method == "POST":
-        if util.authenticate(session['username'], session['password']):
-            session['log'] = "verified"
-            return redirect(url_for('home'))
-        else:
-            return render_template('login.html', error="Incorrect Username or Password")
-    return render_template('login.html', message=session['action'])
+	if request.method == "GET":
+		return render_template('login.html')
+	if verify():
+		return redirect(url_for('home'))
+	if request.method == "POST":
+		if util.authenticate(session['username'], session['password']):
+			session['log'] = "verified"
+			return redirect(url_for('home'))
+		else:
+			return render_template('login.html', error="Incorrect Username or Password")
+	return render_template('login.html',) #message=session['action'])
 
 @app.route('/home')
 def home():
