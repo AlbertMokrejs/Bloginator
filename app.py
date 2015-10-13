@@ -16,24 +16,37 @@ def verify():
 @app.route('/')
 @app.route('/login', methods=["GET","POST"])
 def login():
-	if request.method == "GET":
-		return render_template('login.html')
-	if verify():
-		return redirect(url_for('home'))
-	if request.method == "POST":
-		if util.authenticate(session['username'], session['password']):
-			session['log'] = "verified"
-			return redirect(url_for('home'))
-		else:
-			return render_template('login.html', error="Incorrect Username or Password")
-	return render_template('login.html',) #message=session['action'])
+    if request.method == "GET":
+        return render_template('login.html')
+    if verify():
+        return redirect(url_for('home'))
+    if request.method == "POST":
+        form = request.form
+        print form
+        uname = form['username']
+        session['username'] = uname
+        pword = form['password']
+        if util.authenticate(uname,pword):
+            session['log'] = 'verified'
+            session['username'] = uname
+            print session
+            return redirect(url_for('home'))
+        else:
+            return render_template('login.html', error="Incorrect Username or Password")
+    return render_template('login.html',) #message=session['action'])
 
 @app.route('/home')
 def home():
     if verify():
-        user = session['username']
+        user=''
+        print session
+        if 'username' in session:
+            user=session['username']
+        else:
+            user = session['username'] = "Bleh"
         return render_template('home.html', user=user)
     return redirect(url_for("login"))
+    
 
 @app.route('/logout')
 def logout():
