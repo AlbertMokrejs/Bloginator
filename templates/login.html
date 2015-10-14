@@ -4,11 +4,18 @@
 {% endblock %}
 {% block body %}
 
+<<<<<<< HEAD
 <form class="login" Method = "POST">
   <br>
   <div> Login? </div><br>
 	Username: <input type = "text" name = "username" placeholder="Username"></input><br><br>
 	Password: <input type = "password" name = "password" placeholder="Password"></input><br><br>
+=======
+<form class="login" action="/login" method = "POST">
+  <div> Login? </div>
+	Username:<input type = "text" name = "username" placeholder="Username"></input><br>
+	Password:<input type = "password" name = "password" placeholder="Password"></input><br>
+>>>>>>> 3d4e4c7e15af680e9309a44127157393dad429d5
 	<input type="submit" name="button" value="Login"></input>
 	<input type="submit" name="button" value="Cancel"></input>
 </form>
