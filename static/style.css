@@ -1,9 +1,14 @@
 body {
   background-color: #B6B6B4;
+  font-size:24;
+  font-family:sans-serif;
+  font: Arial;
 }
 
 div{
   text-align:center;
+  font-size-adjust:none;
+
 }
 
 .icon{
