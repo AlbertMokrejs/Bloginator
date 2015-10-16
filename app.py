@@ -28,17 +28,15 @@ def login():
         if util.authenticate(uname,pword):
             session['log'] = 'verified'
             session['username'] = uname
-            print session
             return redirect(url_for('home'))
         else:
             return render_template('login.html', error="Incorrect Username or Password")
-    return render_template('login.html',) #message=session['action'])
+    return render_template('login.html')
 
-@app.route('/home')
+@app.route('/home', methods=["GET","POST"])
 def home():
     if verify():
         user=''
-        print session
         if 'username' in session:
             user=session['username']
         else:
@@ -46,6 +44,24 @@ def home():
         return render_template('home.html', user=user)
     return redirect(url_for("login"))
     
+@app.route('/make')
+def make():
+    if verify():
+        user = session['username']
+        return render_template('make.html',user=user)
+    return redirect(url_for("login"))
+
+@app.route('/view',methods=["GET","POST"))
+def view():
+    if verify():
+        user=session['username']
+    if request.method == "POST":
+        form=request.form
+        title=form['title']
+        content=form['content']
+        util.add(title,user,content)
+    return render_template('view.html')
+
 
 @app.route('/logout')
 def logout():
@@ -56,4 +72,4 @@ def logout():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host = '0.0.0.0',port = 12000)
+    app.run()
