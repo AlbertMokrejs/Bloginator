@@ -1,7 +1,13 @@
 {% extends "master.html" %}
 {% block title %} Home {% endblock %}
 {% block body %}
+<center>
 <h1>Welcome {{user}}!</h1>
 <h1> Home </h1>
-<a href="/login">Login!</a>
+</center>
+<div class = "navigation">
+<a href="/make">Make a Story</a>
+<br>
+<a href="/logout">Logout</a>
+</div>
 {% endblock %}
