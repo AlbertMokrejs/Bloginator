@@ -43,7 +43,7 @@ def home():
             user = session['username'] = "Bleh"
         return render_template('home.html', user=user)
     return redirect(url_for("login"))
-    
+
 @app.route('/make')
 def make():
     if verify():
