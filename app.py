@@ -75,23 +75,18 @@ def make():
         content=form['content']
         button=form['button']
         if button=='Back':
-            return render_template('home.html')
+            user=session['username']
+            return render_template('home.html', user=user)
         util.add(hi.db,user,content,title)
     if verify():
         user = session['username']
         return render_template('make.html',user=user)
     return redirect(url_for("login"))
 
-@app.route('/view',methods=["GET","POST"])
+@app.route('/view')
 def view():
-    if verify():
-        user=session['username']
-    if request.method == "POST":
-        form=request.form
-        title=form['title']
-        content=form['content']
-        util.add(title,user,content)
-    return render_template('view.html')
+    s = util.getposts()
+    return render_template('view.html',posts = s)
 
 
 @app.route('/logout')

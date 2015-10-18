@@ -15,8 +15,8 @@ def add(filename, username, title, content):
         conn = sqlite3.connect('tables/' + filename)
         c = conn.cursor()
 
-        TEMPLATE="INSERT INTO content VALUES ('%(user)s','%(title)s', %(content)s')"
-        q = TEMPLATE%({'user':username,'title':title, content':content})
+        TEMPLATE="INSERT INTO content VALUES ('%(user)s','%(title)s', '%(content)s')"
+        q = TEMPLATE%({'user':username,'title':title, 'content':content})
         c.execute(q)
         conn.commit()
 
@@ -59,3 +59,14 @@ def authenticate(uname, pword):
 		return True
 	else:
 		return False
+
+def getposts():
+        conn = sqlite3.connect('hi.db')
+        c = conn.cursor()
+        out = ""
+        q = 'SELECT user, title, content FROM content'
+        info = c.execute(q).fetchall()
+        for entry in q:
+                out+="<br><h2>"+q[1]+"<\h2><h3>"+q[0]+"<\h3>"+q[2]
+        return out
+        
