@@ -76,7 +76,7 @@ def make():
         button=form['button']
         if button=='Back':
             return render_template('home.html')
-        #Add in Code here to store the Title and Content into the Database
+        util.add(hi.db,user,content,title)
     if verify():
         user = session['username']
         return render_template('make.html',user=user)
