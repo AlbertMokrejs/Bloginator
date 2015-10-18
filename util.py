@@ -66,7 +66,8 @@ def getposts():
         out = ""
         q = 'SELECT user, title, content FROM content'
         info = c.execute(q).fetchall()
-        for entry in q:
+        conn.commit()
+        for entry in info:
                 out+="<br><h2>"+q[1]+"<\h2><h3>"+q[0]+"<\h3>"+q[2]
         return out
         

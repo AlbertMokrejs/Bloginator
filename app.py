@@ -74,10 +74,11 @@ def make():
         title=form['Title']
         content=form['content']
         button=form['button']
+        user=session['username']
         if button=='Back':
             user=session['username']
             return render_template('home.html', user=user)
-        util.add(hi.db,user,content,title)
+        util.add("hi.db",user,content,title)
     if verify():
         user = session['username']
         return render_template('make.html',user=user)
