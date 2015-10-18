@@ -1,4 +1,5 @@
 body {
+  background-image: url('quill.png');
   background-color: #B6B6B4;
   font-size:24;
   font-family:sans-serif;
@@ -22,8 +23,10 @@ div{
   border: black solid 3px;
   background-color:white;
   padding-right:50px;
-  
   width:20%;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align:center;
 }
 
 .navigation{
