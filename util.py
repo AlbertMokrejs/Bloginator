@@ -54,16 +54,6 @@ add("hi.db","leon","hello")
 
 
 
-
-
-
-
-
-
-
-
-
-
 def authenticate(uname, pword):
 	if uname =="Sir" and pword == "Loin":
 		return True
