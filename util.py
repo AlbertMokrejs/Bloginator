@@ -55,8 +55,6 @@ def register(uname,pword):
 add("hi.db","user","content")
 add("hi.db","leon","hello")
 
-
-
 def authenticate(uname, pword):
 	if uname =="Sir" and pword == "Loin":
 		return True
