@@ -51,7 +51,7 @@ def make():
         return render_template('make.html',user=user)
     return redirect(url_for("login"))
 
-@app.route('/view',methods=["GET","POST"))
+@app.route('/view',methods=["GET","POST"])
 def view():
     if verify():
         user=session['username']
