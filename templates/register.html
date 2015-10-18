@@ -2,10 +2,10 @@
 {% block title %}Register!{% endblock %}
 
 {% block body %}
-{% if err %}
-<err>{{err}}</err>
-{% endif %}
 <form class="login" method="POST">
+  {% if err %}
+  <err>{{err}}</err>
+  {% endif %}
   <br>
   <div>Register</div><br>
 	Username:<input type = "text" name = "username" placeholder="Username"></input><br><br>

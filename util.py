@@ -28,9 +28,11 @@ def getTables():
 def authenticate(uname, pword):
     m = md5.new()
     m.update(pword)
+    print 'ok'
     f = open("tables/users.txt",'r')
     for line in f.readlines():
-        if uname == line.split(',')[0] and m.digest() == line.split(',')[1]:
+        print line
+        if uname == line.split(',')[0] and m.hexdigest() == line.split(',')[1]:
             f.close()
             return True
     f.close()

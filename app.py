@@ -24,16 +24,17 @@ def login():
         button = form['button']
         if button == "Register":
             return redirect(url_for("register"))
-        uname = form['username']
-        session['username'] = uname
-        pword = form['password']
-        if util.authenticate(uname,pword):
-            session['log'] = 'verified'
-            session['username'] = uname
-            return redirect(url_for('home'))
         else:
-            return render_template('login.html', error="Incorrect Username or Password")
-    return render_template('login.html')
+            uname = form['username']
+            session['username'] = uname
+            pword = form['password']
+            if util.authenticate(uname,pword):
+                print "hello"
+                session['log'] = 'verified'
+                session['username'] = uname
+                return redirect(url_for('home'))
+            else:
+                return render_template('login.html', error="Incorrect Username or Password")
 
 @app.route('/register',methods=["GET","POST"])
 def register():

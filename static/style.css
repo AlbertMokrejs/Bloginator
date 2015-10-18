@@ -6,6 +6,11 @@ body {
   font: Arial;
 }
 
+err{
+  color:red;
+  font-size:25;
+}
+
 div{
   text-align:center;
   font-size-adjust:none;
