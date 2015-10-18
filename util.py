@@ -1,6 +1,7 @@
 import sqlite3
 from os import listdir
 from os.path import isfile, join
+import md5
 
 def add(filename, username, content):
         if not isfile(join('tables/',filename)):
@@ -23,6 +24,31 @@ def getTables():
         onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
         return onlyfiles
 
+
+def authenticate(uname, pword):
+    m = md5.new()
+    m.update(pword)
+    f = open("tables/users.txt",r)
+    for line.strip() in f.readlines():
+        if uname == line.split(',')[0] and m.digest() == line.split(',')[1]:
+            f.close()
+            return True
+    f.close()
+    return False
+
+def register(uname,pword):
+    m=md5.new()
+    m.update(pword)
+    f = open("tables/users.txt", r)
+    for line.strip() in f.readlines():
+        if uname == line.split(',')[0]:
+            return False
+    f.close()
+    f = open("tables/users.txt",'a')
+    f.write("%(user)s,%(phash)s"%({"user":uname,"phash":m.digest()}))
+    f.close()
+    return True
+
 add("hi.db","user","content")
 add("hi.db","leon","hello")
 
@@ -30,7 +56,7 @@ add("hi.db","leon","hello")
 
 
 
-        
+
 
 
 
