@@ -44,8 +44,16 @@ def home():
         return render_template('home.html', user=user)
     return redirect(url_for("login"))
 
-@app.route('/make')
+@app.route('/make',methods=["GET","POST"])
 def make():
+    if request.method =="POST":
+        form = request.form
+        title=form['Title']
+        content=form['content']
+        button=form['button']
+        if button=='Back':
+            return render_template('home.html')
+        #Add in Code here to store the Title and Content into the Database
     if verify():
         user = session['username']
         return render_template('make.html',user=user)
@@ -72,4 +80,4 @@ def logout():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0', port=12000)

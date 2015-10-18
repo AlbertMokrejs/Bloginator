@@ -1,16 +1,24 @@
-{% extends "master.html" %}
-{% block title %} Home {% endblock %}
-{% block body %}
-<left>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='icon.jpg') }}">
+  	<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  	<title>Homepage</title>
+</head>
+<body>
+<a href="/home">
+    <img class="icon" src="{{ url_for('static', filename='icon.jpg') }}">
+</a>
+<right>
 <h1>Welcome {{user}}!</h1>
-<h1> Home </h1>
-</left>
+</right>
 <center>
 <p>Add to a story below, or make your own!</p>
 </center>
-<div class = "navigation">
-<a href="/make">Make a Story</a>
-<br>
-<a href="/logout">Logout</a>
-</div>
-{% endblock %}
+<ul>
+	<li><a href="/make">Make a Story</a></li>
+	<li><a href="/logout">Logout</a></li>
+</ul>
+</body>
+</html>
+
