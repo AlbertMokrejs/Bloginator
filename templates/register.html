@@ -1,17 +1,18 @@
 {% extends "master.html" %}
-{% block title %}
-  Welcome!
-{% endblock %}
+{% block title %}Register!{% endblock %}
+
 {% block body %}
-<center>
-<form class="login" Method = "POST">
+{% if err %}
+<err>{{err}}</err>
+{% endif %}
+<form class="login" method="POST">
   <br>
-  <div>Login</div><br>
+  <div>Register</div><br>
 	Username:<input type = "text" name = "username" placeholder="Username"></input><br><br>
 	Password:<input type = "password" name = "password" placeholder="Password"></input><br><br>
   <center>
-	<input type="submit" name="button" value="Login"></input>
 	<input type="submit" name="button" value="Register"></input>
+	<input type="submit" name="button" value="Login"></input>
   </center>
 </form>
 </center>

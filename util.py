@@ -28,8 +28,8 @@ def getTables():
 def authenticate(uname, pword):
     m = md5.new()
     m.update(pword)
-    f = open("tables/users.txt",r)
-    for line.strip() in f.readlines():
+    f = open("tables/users.txt",'r')
+    for line in f.readlines():
         if uname == line.split(',')[0] and m.digest() == line.split(',')[1]:
             f.close()
             return True
@@ -39,13 +39,16 @@ def authenticate(uname, pword):
 def register(uname,pword):
     m=md5.new()
     m.update(pword)
-    f = open("tables/users.txt", r)
-    for line.strip() in f.readlines():
+    p = m.hexdigest()
+    print p
+    f = open("tables/users.txt", 'r')
+    for line in f.readlines():
         if uname == line.split(',')[0]:
             return False
     f.close()
     f = open("tables/users.txt",'a')
-    f.write("%(user)s,%(phash)s"%({"user":uname,"phash":m.digest()}))
+
+    f.write("%(user)s,%(phash)s\n"%({"user":uname,"phash":m.hexdigest()}))
     f.close()
     return True
 
