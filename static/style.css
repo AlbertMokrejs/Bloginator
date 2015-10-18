@@ -24,6 +24,9 @@ div{
   background-color:white;
   padding-right:50px;
   width:20%;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-align:center;
 }
 
 .navigation{

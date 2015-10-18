@@ -28,30 +28,23 @@ def getTables():
 def authenticate(uname, pword):
     m = md5.new()
     m.update(pword)
-    f = open("tables/users.txt",'r')
-    for line in f.readlines():
-        if uname == line.split(',')[0] and m.digest() == line.split(',')[1]:
-            f.close()
-            return True
+    f = open("tables/users.txt",r)
+    #for line.strip() in f.readlines():
+    if uname == line.split(',')[0] and m.digest() == line.split(',')[1]:
+        f.close()
+        return True
     f.close()
     return False
 
 def register(uname,pword):
     m=md5.new()
     m.update(pword)
-<<<<<<< HEAD
     f = open("tables/users.txt", r)
     #for line.strip() in f.readlines():
     if uname == line.split(',')[0]:
         return False
-=======
     p = m.hexdigest()
     print p
-    f = open("tables/users.txt", 'r')
-    for line in f.readlines():
-        if uname == line.split(',')[0]:
-            return False
->>>>>>> a80928590a888c7498cbd6ba9e36519cbece1248
     f.close()
     f = open("tables/users.txt",'a')
 
