@@ -21,7 +21,9 @@ def login():
         return redirect(url_for('home'))
     if request.method == "POST":
         form = request.form
-        print form
+        button = form['button']
+        if button == "Register":
+            return redirect(url_for("register"))
         uname = form['username']
         session['username'] = uname
         pword = form['password']
@@ -32,6 +34,26 @@ def login():
         else:
             return render_template('login.html', error="Incorrect Username or Password")
     return render_template('login.html')
+
+@app.route('/register',methods=["GET","POST"])
+def register():
+    if request.method == "GET":
+        return render_template("register.html")
+    if request.method == "POST":
+        form = request.form
+        uname = form['username']
+        pword = form['password']
+        button = form['button']
+        if button == 'Login':
+            return redirect(url_for('login'))
+        if util.register(uname,pword):
+            session['log'] = 'verified'
+            session['username'] = uname
+            return redirect(url_for('home'))
+        else:
+            return render_template('register.html',err="That username is taken!")
+
+
 
 @app.route('/home', methods=["GET","POST"])
 def home():
