@@ -28,6 +28,11 @@ div{
   color:green;
 }
 
+div.welcome{
+  text-align:right;
+  font-size:28;
+}
+
 .icon{
   padding-left:10px;
   length:50px;
