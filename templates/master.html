@@ -4,8 +4,9 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='icon.jpg') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>{% block title %}{% endblock %}</title>
+  {% block head %}{% endblock %}
 </head>
-<body>
+<body {% block stylebody %}{% endblock %}>
   <a href="/home">
     <img class="icon" src="{{ url_for('static', filename='icon.jpg') }}">
   </a>
