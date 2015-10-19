@@ -9,17 +9,13 @@
 <a href="/home">
     <img class="icon" src="{{ url_for('static', filename='icon.jpg') }}">
 </a>
-<right>
-<h1>Welcome {{user}}!</h1>
-</right>
+<div class="welcome">Welcome {{user}}!</div>
 <center>
 <p>Add to a story below, or make your own!</p>
 </center>
 <ul>
 	<li><a href="/make">Make a Story</a></li>
-        <li><a href="/view">View Posts</a></li>
 	<li><a href="/logout">Logout</a></li>
 </ul>
 </body>
 </html>
-
