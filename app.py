@@ -52,8 +52,6 @@ def register():
         else:
             return render_template('register.html',err="That username is taken!")
 
-
-
 @app.route('/home', methods=["GET","POST"])
 def home():
     if verify():
@@ -76,7 +74,7 @@ def make():
         if button=='Back':
             user=session['username']
             return render_template('home.html', user=user)
-        util.add("%s.db"%title,user,content,title)
+        util.add("%s.db"%title,user,content)
         return redirect('/view/%s'%title)
     if verify():
         user = session['username']
@@ -84,14 +82,20 @@ def make():
     return redirect(url_for("login"))
 
 @app.route('/view')
-@app.route('/view/<title>')
+@app.route('/view/<title>',methods=["GET","POST"])
 def view(title=""):
     if title == "":
         return redirect('/home')
+    user=""
     if verify():
-        posts = util.getposts(title)
-        return render_template('view.html',title=title,posts=posts)
-    return redirect('/login')
+        user=session['username']
+    if request.method == "POST":
+        form = request.form
+        content = form['content']
+        util.add("%s.db"%title,user, content)
+    posts = util.getposts(title)
+    return render_template('view.html',user=user,title=title,posts=posts)
+
 
 @app.route('/logout')
 def logout():

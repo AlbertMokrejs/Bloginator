@@ -3,12 +3,16 @@
 {{title}}
 {% endblock %}
 {% block body %}
-<h1>{{title}}<h1>
+<div>{{title}}</div>
+<table>
 {% for post in posts %}
-<hr>
-<h3>{{post[1]}}
-<h4>By {{post[0]}}</h4>
-<br>
-{{post[2]}}
+<tr>
+  <td class="content">{{post[1]}}</td>
+  <td class="author">By - {{post[0]}}</td>
+</tr>
 {% endfor %}
+</table><br>
+  <form method="POST" class="add">
+    <textarea name="content" style="width:90%;" rows="4"></textarea><input type="submit" value="Submit">
+  </form>
 {% endblock %}

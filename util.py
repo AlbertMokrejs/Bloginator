@@ -3,20 +3,20 @@ from os import listdir
 from os.path import isfile, join
 import md5
 
-def add(filename, username, title, content):
+def add(filename, username, content):
         if not isfile(join('tables/',filename)):
                 file = open('tables/' + filename, 'w+')
                 new = sqlite3.connect('tables/' + filename)
                 c = new.cursor()
-                q = "CREATE TABLE content (user text, title text, content text)"
+                q = "CREATE TABLE content (user text, content text)"
                 c.execute(q)
                 new.commit()
                 file.close()
         conn = sqlite3.connect('tables/' + filename)
         c = conn.cursor()
 
-        TEMPLATE="INSERT INTO content VALUES ('%(user)s','%(title)s', '%(content)s')"
-        q = TEMPLATE%({'user':username,'title':title, 'content':content})
+        TEMPLATE="INSERT INTO content VALUES ('%(user)s', '%(content)s')"
+        q = TEMPLATE%({'user':username, 'content':content})
         c.execute(q)
         conn.commit()
 
@@ -53,7 +53,7 @@ def getposts(title):
         conn = sqlite3.connect('tables/%s.db'%title)
         c = conn.cursor()
         out = ""
-        q = 'SELECT user, title, content FROM content'
+        q = 'SELECT user, content FROM content'
         info = c.execute(q).fetchall()
         conn.commit()
         return info

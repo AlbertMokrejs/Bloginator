@@ -8,12 +8,16 @@ body {
 
 table{
   background-color:white;
-  border-top:3px solid black;
-  border-bottom:3px solid black;
+  border: 3px solid black;
+  align:center;
+  width:100%;
+  border:1;
 }
 
 td{
-  border-right:3px solid black;
+  align:center;
+  border:groove;
+  padding:10px;
 }
 
 err{
@@ -24,8 +28,14 @@ err{
 div{
   text-align:center;
   font-size-adjust:none;
-  font-size:24;
+  font-size:44;
   color:green;
+}
+
+.add{
+  padding:20px;
+  width:70%;
+  height:40%;
 }
 
 .welcome{
@@ -59,4 +69,12 @@ div{
     background-color:white;
     text-align:center;
     width:10%;
+}
+
+.content{
+  width:80%;
+}
+
+.author{
+  width:20%;
 }
