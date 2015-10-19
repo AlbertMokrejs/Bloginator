@@ -1,5 +1,5 @@
 body {
-  background-image: url('quill.png');
+
   background-color: #B6B6B4;
   font-size:24;
   font-family:sans-serif;
@@ -28,9 +28,8 @@ div{
   color:green;
 }
 
-div.welcome{
-  text-align:right;
-  font-size:28;
+.login{
+  background-image: url('quill.png');
 }
 
 .icon{
@@ -39,7 +38,7 @@ div.welcome{
   width:100px;
 }
 
-.login{
+.loginform{
   border: black solid 3px;
   background-color:white;
   padding-right:50px;
