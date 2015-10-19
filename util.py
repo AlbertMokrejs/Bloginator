@@ -62,5 +62,5 @@ def gettitles():
     titles = []
     for f in listdir('tables/'):
         if f.find('.db') >= 0:
-            titles.append(f)
+            titles.append(f[:-3])
     return titles
