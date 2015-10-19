@@ -32,7 +32,8 @@ def authenticate(uname, pword):
     f = open("tables/users.txt",'r')
     for line in f.readlines():
         print line
-        if uname == line.split(',')[0] and m.hexdigest() == line.split(',')[1]:
+        print line.split(',')[1]
+        if uname == line.split(',')[0] and m.hexdigest() == line.split(',')[1].strip():
             f.close()
             return True
     f.close()
@@ -58,6 +59,4 @@ def getposts(title):
         q = 'SELECT user, title, content FROM content'
         info = c.execute(q).fetchall()
         conn.commit()
-        for entry in info:
-                out+="<br><h2>"+entry[1]+"<\h2><h3>"+entry[0]+"<\h3>"+entry[2]
-        return out
+        return info

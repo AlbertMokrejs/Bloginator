@@ -3,6 +3,11 @@
 Posts
 {% endblock %}
 {% block body %}
-<h1>Posts<h1>
-{{posts}}
+<h1>{{title}}<h1>
+  <table>
+{% for post in posts %}
+<tr>
+  <td>{{post[0]}}</td><td>{{post[1]}}</td>
+</tr>
+{% endfor %}
 {% endblock %}

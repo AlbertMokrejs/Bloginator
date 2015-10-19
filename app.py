@@ -92,7 +92,7 @@ def view(title=""):
         return redirect('/home')
     if verify():
         s = util.getposts(title)
-        return render_template('view.html',posts = s)
+        return render_template('view.html',title=title,posts = s)
     return redirect('/login')
 
 @app.route('/logout')

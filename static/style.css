@@ -6,6 +6,16 @@ body {
   font: Arial;
 }
 
+table{
+  background-color:white;
+  border-top:3px solid black;
+  border-bottom:3px solid black;
+}
+
+td{
+  border-right:3px solid black;
+}
+
 err{
   color:red;
   font-size:25;
