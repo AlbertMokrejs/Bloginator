@@ -4,7 +4,11 @@
 {% endblock %}
 {% block body %}
 <h1>{{title}}<h1>
-<h3>By {{posts[0]}}</h3>
+{% for post in posts %}
 <hr>
-{{posts[2]}}
+<h3>{{post[1]}}
+<h4>By {{post[0]}}</h4>
+<br>
+{{post[2]}}
+{% endfor %}
 {% endblock %}
