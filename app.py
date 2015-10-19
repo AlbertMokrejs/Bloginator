@@ -3,11 +3,6 @@ import util
 
 app = Flask(__name__)
 app.secret_key = "Something"
-titles = []
-f = open("tables/titles.txt",'r')
-for line in f.readlines():
-    titles.append(line)
-f.close()
 
 def verify():
     if 'log' in session:
@@ -33,7 +28,6 @@ def login():
             session['username'] = uname
             pword = form['password']
             if util.authenticate(uname,pword):
-                print "hello"
                 session['log'] = 'verified'
                 session['username'] = uname
                 return redirect(url_for('home'))
@@ -68,7 +62,7 @@ def home():
             user=session['username']
         else:
             user = session['username'] = "Bleh"
-        return render_template('home.html', user=user, posts =titles)
+        return render_template('home.html', user=user, posts =util.gettitles())
     return redirect(url_for("login"))
 
 @app.route('/make',methods=["GET","POST"])
@@ -83,11 +77,6 @@ def make():
             user=session['username']
             return render_template('home.html', user=user)
         util.add("%s.db"%title,user,content,title)
-        f = open("tables/titles.txt",'a')
-        f.write("%(title)s\n"%({"title":title}))
-        f.close()
-        titles.append(title)
-        print titles
         return redirect('/view/%s'%title)
     if verify():
         user = session['username']
@@ -100,8 +89,8 @@ def view(title=""):
     if title == "":
         return redirect('/home')
     if verify():
-        s = util.getposts(title)
-        return render_template('view.html',title=title,posts = s)
+        posts = util.getposts(title)
+        return render_template('view.html',title=title,posts=posts)
     return redirect('/login')
 
 @app.route('/logout')

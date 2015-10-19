@@ -58,11 +58,9 @@ def getposts(title):
         conn.commit()
         return info
 
-def gettitles(title):
-        conn = sqlite3.connect('tables/%s.db'%title)
-        c = conn.cursor()
-        out = ""
-        q = 'SELECT title FROM content'
-        info = c.execute(q).fetchone()
-        conn.commit()
-        return info
+def gettitles():
+    titles = []
+    for f in listdir('tables/'):
+        if f.find('.db') >= 0:
+            titles.append(f)
+    return titles
