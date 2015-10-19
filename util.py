@@ -54,20 +54,15 @@ def register(uname,pword):
 add("hi.db","user", "title","content")
 add("hi.db","leon", "Something", "hello")
 
-def authenticate(uname, pword):
-	if uname =="Sir" and pword == "Loin":
-		return True
-	else:
-		return False
-
 def getposts():
-        conn = sqlite3.connect('hi.db')
+        conn = sqlite3.connect('tables/hi.db')
         c = conn.cursor()
         out = ""
         q = 'SELECT user, title, content FROM content'
         info = c.execute(q).fetchall()
         conn.commit()
         for entry in info:
-                out+="<br><h2>"+q[1]+"<\h2><h3>"+q[0]+"<\h3>"+q[2]
+                out+="<br><h2>"+entry[1]+"<\h2><h3>"+entry[0]+"<\h3>"+entry[2]
         return out
-        
+
+print getposts()

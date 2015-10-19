@@ -78,7 +78,8 @@ def make():
         if button=='Back':
             user=session['username']
             return render_template('home.html', user=user)
-        util.add("hi.db",user,content,title)
+        util.add("%s.db"%title,user,content,title)
+        return redirect('/view/%s'%title)
     if verify():
         user = session['username']
         return render_template('make.html',user=user)
