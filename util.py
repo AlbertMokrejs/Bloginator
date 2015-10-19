@@ -54,6 +54,15 @@ def getposts(title):
         c = conn.cursor()
         out = ""
         q = 'SELECT user, title, content FROM content'
-        info = c.execute(q).fetchall()
+        info = c.execute(q).fetchone()
+        conn.commit()
+        return info
+
+def gettitles(title):
+        conn = sqlite3.connect('tables/%s.db'%title)
+        c = conn.cursor()
+        out = ""
+        q = 'SELECT title FROM content'
+        info = c.execute(q).fetchone()
         conn.commit()
         return info

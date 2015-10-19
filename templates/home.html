@@ -17,5 +17,12 @@
 	<li><a href="/make">Make a Story</a></li>
 	<li><a href="/logout">Logout</a></li>
 </ul>
+<center>
+<ul>
+	{% for title in posts %}
+		<li><a href="/view/{{title}}">{{title}}</a></li>
+	{% endfor %}
+</ul>
+</center>
 </body>
 </html>

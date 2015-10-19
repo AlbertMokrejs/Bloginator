@@ -3,7 +3,7 @@ import util
 
 app = Flask(__name__)
 app.secret_key = "Something"
-
+titles=[]
 
 def verify():
     if 'log' in session:
@@ -64,7 +64,11 @@ def home():
             user=session['username']
         else:
             user = session['username'] = "Bleh"
-        return render_template('home.html', user=user)
+        posts=[]
+        for title in titles:
+            posts.append(util.gettitles(title))
+        print titles
+        return render_template('home.html', user=user, posts =posts)
     return redirect(url_for("login"))
 
 @app.route('/make',methods=["GET","POST"])
@@ -79,6 +83,8 @@ def make():
             user=session['username']
             return render_template('home.html', user=user)
         util.add("%s.db"%title,user,content,title)
+        titles.append(title)
+        print titles
         return redirect('/view/%s'%title)
     if verify():
         user = session['username']
