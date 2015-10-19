@@ -29,6 +29,7 @@ div{
 }
 
 .welcome{
+  text-align:left;
   font-size:24;
   color:green;
 }
