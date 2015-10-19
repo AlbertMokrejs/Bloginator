@@ -51,11 +51,8 @@ def register(uname,pword):
     f.close()
     return True
 
-add("hi.db","user", "title","content")
-add("hi.db","leon", "Something", "hello")
-
-def getposts():
-        conn = sqlite3.connect('tables/hi.db')
+def getposts(title):
+        conn = sqlite3.connect('tables/%s.db'%title)
         c = conn.cursor()
         out = ""
         q = 'SELECT user, title, content FROM content'
@@ -64,5 +61,3 @@ def getposts():
         for entry in info:
                 out+="<br><h2>"+entry[1]+"<\h2><h3>"+entry[0]+"<\h3>"+entry[2]
         return out
-
-print getposts()

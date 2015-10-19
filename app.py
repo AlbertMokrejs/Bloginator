@@ -86,10 +86,14 @@ def make():
     return redirect(url_for("login"))
 
 @app.route('/view')
-def view():
-    s = util.getposts()
-    return render_template('view.html',posts = s)
-
+@app.route('/view/<title>')
+def view(title=""):
+    if title == "":
+        return redirect('/home')
+    if verify():
+        s = util.getposts(title)
+        return render_template('view.html',posts = s)
+    return redirect('/login')
 
 @app.route('/logout')
 def logout():
