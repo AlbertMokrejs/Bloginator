@@ -1,13 +1,10 @@
 {% extends "master.html" %}
 {% block title %}
-Posts
+{{title}}
 {% endblock %}
 {% block body %}
 <h1>{{title}}<h1>
-  <table>
-{% for post in posts %}
-<tr>
-  <td>{{post[0]}}</td><td>{{post[1]}}</td>
-</tr>
-{% endfor %}
+<h3>By {{posts[0]}}</h3>
+<hr>
+{{posts[2]}}
 {% endblock %}
