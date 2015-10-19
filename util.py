@@ -54,7 +54,7 @@ def getposts(title):
         c = conn.cursor()
         out = ""
         q = 'SELECT user, title, content FROM content'
-        info = c.execute(q).fetchone()
+        info = c.execute(q).fetchall()
         conn.commit()
         return info
 
