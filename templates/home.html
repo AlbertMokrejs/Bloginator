@@ -1,28 +1,15 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<link rel="shortcut icon" href="{{ url_for('static', filename='icon.jpg') }}">
-  	<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-  	<title>Homepage</title>
-</head>
-<body>
-<a href="/home">
-    <img class="icon" src="{{ url_for('static', filename='icon.jpg') }}">
-</a>
+{% extends "master.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
 <div class="welcome">Welcome {{user}}!</div>
-<center>
 <p>Add to a story below, or make your own!</p>
-</center>
-<ul>
-	<li><a href="/make">Make a Story</a></li>
-	<li><a href="/logout">Logout</a></li>
-</ul>
-<center>
-<ul>
+
+<a href="/make">Make a Story</a>
+<a href="/logout">Logout</a>
+<table>
 	{% for title in posts %}
-		<li><a href="/view/{{title}}">{{title}}</a></li>
+		<tr><a href="/view/{{title}}">{{title}}</a></tr>
 	{% endfor %}
-</ul>
+</table>
 </center>
-</body>
-</html>
+{% endblock %}

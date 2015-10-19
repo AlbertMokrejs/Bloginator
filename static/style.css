@@ -28,6 +28,11 @@ div{
   color:green;
 }
 
+.welcome{
+  font-size:24;
+  color:green;
+}
+
 .login{
   background-image: url('quill.png');
 }
