@@ -13,6 +13,7 @@ def verify():
     else:
         session['log'] = 'unverified'
         return False
+#Checks if you're logged in
 
 @app.route('/')
 @app.route('/login', methods=["GET","POST"])
@@ -31,6 +32,7 @@ def login():
             session['username'] = uname
             pword = form['password']
             if util.authenticate(uname,pword):
+                #Authenticates login, uses Utils.py
                 session['log'] = 'verified'
                 session['username'] = uname
                 return redirect(url_for('home'))
@@ -49,6 +51,7 @@ def register():
         if button == 'Login':
             return redirect(url_for('login'))
         if util.register(uname,pword):
+            #Registes username but also has to return a boolean if successful. See Authenticate
             session['log'] = 'verified'
             session['username'] = uname
             return redirect(url_for('home'))
@@ -63,7 +66,9 @@ def home():
             user=session['username']
         else:
             user = session['username'] = "Bleh"
-        return render_template('home.html', user=user, posts =util.gettitles())
+            #not sure what this does
+        return render_template('home.html', user=user, posts=util.gettitles())
+        #getTitles creates a list of Post Titles for insertion into the template
     return redirect(url_for("login"))
 
 @app.route('/make',methods=["GET","POST"])
@@ -78,7 +83,9 @@ def make():
             user=session['username']
             return render_template('home.html', user=user)
         util.add("%s.db"%title,user,content)
+        #Appears to be used to add posts, see Utils
         return redirect('/view/%s'%title)
+        #Redirects to a post of the name that was added
     if verify():
         user = session['username']
         return render_template('make.html',user=user)
@@ -96,6 +103,7 @@ def view(title=""):
         form = request.form
         content = form['content']
         util.add("%s.db"%title,user, content)
+        #not sure, either adds posts or comments
     posts = util.getposts(title)
     return render_template('view.html',user=user,title=title,posts=posts)
 
