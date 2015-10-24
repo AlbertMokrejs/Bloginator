@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import util
 
+#NO SQL IN THIS DOCUMENT, NOTHING BUT HTML TO CHANGE HERE
+#We will have to make Util.py work in accordance to whatever this requires, I guess...
+
 app = Flask(__name__)
 app.secret_key = "Something"
 
