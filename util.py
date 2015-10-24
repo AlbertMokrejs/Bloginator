@@ -1,7 +1,9 @@
 import sqlite3
+import random
+from pymongo import MongoClient
 from os import listdir
 from os.path import isfile, join
-import md5
+import md5 
 
 def add(filename, username, content):
 #        if not isfile(join('tables/',filename)):
@@ -12,14 +14,18 @@ def add(filename, username, content):
      #           c.execute(q)
       #          new.commit()
        #         file.close()
+#Mongo stores files in a seperate place, the above code is likely useless
         conn = MongoClient()
-        c = conn[filename]
+        c = conn["main"]
         q = {'user':username, 'content':content}
-        c.main.insert(q)
+        c[filename].insert(q)
+#not really sure what this method is for, might work though.
         
 def getTables():
+ #Likely useless as the files are stored elsewhere.... need a rewrite
         onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
         return onlyfiles
+ 
 
 def authenticate(uname, pword):
         ##should be fine
@@ -32,6 +38,7 @@ def authenticate(uname, pword):
             return True
     f.close()
     return False
+ #PWords/Unames are stored in a text file which is annoying / gross
 
 def register(uname,pword):
         ##should be fine. These ****s used encryption, I think. It makes the code so gross.
@@ -48,13 +55,11 @@ def register(uname,pword):
     return True
 
 def getposts(title):
-        conn = sqlite3.connect('tables/%s.db'%title)
-        c = conn.cursor()
-        out = ""
-        q = 'SELECT user, content FROM content'
-        info = c.execute(q).fetchall()
-        conn.commit()
+        conn = MongoClient()
+        c = conn["main"]
+        info = c[filename].find({"user": true, "content":true, "_id":false}
         return info
+        #might be broken, no idea. No idea what the F*** all these things do.
 
 def gettitles():
     titles = []
@@ -62,3 +67,4 @@ def gettitles():
         if f.find('.db') >= 0:
             titles.append(f[:-3])
     return titles
+    #This is 100% BROKEN, as our files are stored somewhere else. We'll need to replace this. 
