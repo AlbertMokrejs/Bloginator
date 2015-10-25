@@ -57,7 +57,7 @@ def register(uname,pword):
 def getposts(title):
         conn = MongoClient()
         c = conn["main"]
-        info = c[filename].find({"user": true, "content":true, "_id":false}
+        info = c[filename].find({"user": true, "content":true, "_id":false})
         return info
         #might be broken, no idea. No idea what the F*** all these things do.
 
