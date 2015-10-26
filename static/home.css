@@ -10,6 +10,10 @@ body{
   width:100px;
 }
 
+span.glyphicon {
+    font-size: 8px;  
+}
+
 ul{
     list-style-type:none;
     margin:0;

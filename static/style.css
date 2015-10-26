@@ -1,3 +1,4 @@
+/* I assume that   stylebody class="login"    refers to the .login here */
 body {
 
   background-color: #B6B6B4;
@@ -28,8 +29,8 @@ err{
 div{
   text-align:center;
   font-size-adjust:none;
-  font-size:44;
-  color:green;
+  font-size:44; /* changing this number doesn't change the size of the letter... How misleading */
+  color:green; /* at least this can be changed */
 }
 
 .add{
@@ -49,9 +50,9 @@ div{
 }
 
 .icon{
-  padding-left:10px;
-  length:50px;
-  width:100px;
+  padding-left:60px; /* from the left, how much indent */
+  length:100px; /* self explainatory for both */
+  width:200px;
 }
 
 .loginform{

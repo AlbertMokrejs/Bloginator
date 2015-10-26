@@ -1,8 +1,10 @@
 {% extends "master.html" %}
-{% block title %}Register!{% endblock %}
-
+{% block title %}
+  Register!
+{% endblock %}
+{% block stylebody %}class="login"{% endblock %}
 {% block body %}
-<form class="login" method="POST">
+<form class="loginform" method="POST"> <!-- if the stylebody is added and login changed to loginform, login is redundant-->
   {% if err %}
   <err>{{err}}</err>
   {% endif %}
