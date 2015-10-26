@@ -1,5 +1,5 @@
 # Bloginator
-HELLO
+
 Blog Site!
 
 Leon Chou: Leader
