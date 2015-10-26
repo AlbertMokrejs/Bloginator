@@ -21,10 +21,12 @@ def add(filename, username, content):
         c[filename].insert(q)
 #not really sure what this method is for, might work though.
         
-def getTables():
+#def getTables():
  #Likely useless as the files are stored elsewhere.... need a rewrite
-        onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
-        return onlyfiles
+       # onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
+       # return onlyfiles
+
+#SO WE NEED TO MAKE A FUNCTION THAT GETS THE TABLES FROM WHEREVER MONGO SAVES IT?
  
 
 def authenticate(uname, pword):
@@ -39,9 +41,12 @@ def authenticate(uname, pword):
     f.close()
     return False
  #PWords/Unames are stored in a text file which is annoying / gross
+ #agreed. What should we do?
 
 def register(uname,pword):
         ##should be fine. These ****s used encryption, I think. It makes the code so gross.
+        ##wanna get rid of encryption?
+        ##^I think that's a yes
     m=md5.new()
     m.update(pword)
     f = open("tables/users.txt", 'r')
@@ -50,6 +55,8 @@ def register(uname,pword):
             return False
     f.close()
     f = open("tables/users.txt",'a')
+    #f.write("%s,%s\n"%(uname,m.hexdigest()))
+    #I think it looks prettier, does this work?
     f.write("%(user)s,%(phash)s\n"%({"user":uname,"phash":m.hexdigest()}))
     f.close()
     return True
@@ -67,4 +74,6 @@ def gettitles():
         if f.find('.db') >= 0:
             titles.append(f[:-3])
     return titles
-    #This is 100% BROKEN, as our files are stored somewhere else. We'll need to replace this. 
+    #This is 100% BROKEN, as our files are stored somewhere else. We'll need to replace this.
+    #where the hell does Mongo save files?? I dont get it
+    #Google it
