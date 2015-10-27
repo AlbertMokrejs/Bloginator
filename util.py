@@ -76,10 +76,9 @@ def getposts(title):
         #might be broken, no idea. No idea what the heck all these things do. Assuming it is supposed to find a specific post, it might work with !A!.
 
 def gettitles():
-    titles = []
-    for f in listdir('tables/'):
-        if f.find('.db') >= 0:
-            titles.append(f[:-3])
+    conn = MongoClient()
+    c = conn["main"]
+    titles = c.getCollectionNames():
     return titles
     #This is 100% BROKEN, as our files are stored somewhere else. We'll need to replace this.
     #where the hell does Mongo save files?? I dont get it
