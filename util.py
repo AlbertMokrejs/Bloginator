@@ -26,7 +26,7 @@ def add(filename, username, content):
        # onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
        # return onlyfiles
 
-#SO WE NEED TO MAKE A FUNCTION THAT GETS THE TABLES FROM WHEREVER MONGO SAVES IT?
+# WE NEED TO MAKE A FUNCTION THAT GETS THE TABLES FROM WHEREVER MONGO SAVES IT
  
 
 def authenticate(uname, pword):
@@ -41,12 +41,11 @@ def authenticate(uname, pword):
     f.close()
     return False
  #PWords/Unames are stored in a text file which is annoying / gross
- #agreed. What should we do?
 
 def register(uname,pword):
-        ##should be fine. These ****s used encryption, I think. It makes the code so gross.
+        ##should be fine. They used encryption, I think. It makes the code so gross.
         ##wanna get rid of encryption?
-        ##^I think that's a yes
+        ##yes, maybe
     m=md5.new()
     m.update(pword)
     f = open("tables/users.txt", 'r')
@@ -66,7 +65,7 @@ def getposts(title):
         c = conn["main"]
         info = c[filename].find({"user": true, "content":true, "_id":false})
         return info
-        #might be broken, no idea. No idea what the F*** all these things do.
+        #might be broken, no idea. No idea what the heck all these things do.
 
 def gettitles():
     titles = []
