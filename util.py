@@ -77,7 +77,7 @@ def getposts(title):
 
 def gettitles():
     conn = MongoClient()
-    #c = conn["main"]
+    c = conn["main"]
     titles = conn.getCollectionNames()
     return titles
     #This is 100% BROKEN, as our files are stored somewhere else. We'll need to replace this.
