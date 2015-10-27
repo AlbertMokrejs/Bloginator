@@ -15,7 +15,7 @@ def verify():
         return False
 #Checks if you're logged in
 
-@app.route('/')
+@app.route('/', methods=["GET","POST"])
 @app.route('/login', methods=["GET","POST"])
 def login():
     if request.method == "GET":
