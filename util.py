@@ -78,7 +78,11 @@ def getposts(title):
 def gettitles():
     conn = MongoClient()
     c = conn["main"]
+<<<<<<< HEAD
     titles = c.getCollectionNames()
+=======
+    titles = conn.getCollectionNames()
+>>>>>>> d8fb8af01e38b459fd3ba65817ec35febb28cf1a
     return titles
     #This is 100% BROKEN, as our files are stored somewhere else. We'll need to replace this.
     #where the hell does Mongo save files?? I dont get it
