@@ -32,7 +32,6 @@ def getTables():
  #Likely useless as the files are stored elsewhere.... need a rewrite
        # onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
        # return onlyfiles
-
 # WE NEED TO MAKE A FUNCTION THAT GETS THE TABLES FROM WHEREVER MONGO SAVES IT
 # SEE !A!, it doesn't make multiple files now
  
