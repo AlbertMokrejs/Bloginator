@@ -23,7 +23,12 @@ def add(filename, username, content):
 #not really sure what this method is for, might work though.
 #it requires not making a new file, but instead makes a new table in. 
         
-#def getTables():
+def getTables():
+    conn = MongoClient()
+        c = conn["main"]
+        info = c[title].find()
+        #{"user": True, "content":True, "_id":False}
+        return info
  #Likely useless as the files are stored elsewhere.... need a rewrite
        # onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
        # return onlyfiles
