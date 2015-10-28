@@ -25,10 +25,9 @@ def add(filename, username, content):
         
 def getTables():
     conn = MongoClient()
-        c = conn["main"]
-        info = c[title].find()
-        #{"user": True, "content":True, "_id":False}
-        return info
+    c = conn["main"]
+    info = c[title].find()
+    return info
  #Likely useless as the files are stored elsewhere.... need a rewrite
        # onlyfiles=[f for f in listdir('tables/') if isfile(join('tables/',f))]
        # return onlyfiles
@@ -73,11 +72,11 @@ def register(uname,pword):
     #returns true if succesful. A false is an error, probably declared on the page. 
 
 def getposts(title):
-        conn = MongoClient()
-        c = conn["main"]
-        info = c[title].find()
+    conn = MongoClient()
+    c = conn["main"]
+    info = c[title].find()
+    return info
         #{"user": True, "content":True, "_id":False}
-        return info
         #might be broken, no idea. No idea what the heck all these things do. Assuming it is supposed to find a specific post, it might work with !A!.
 
 def gettitles():
