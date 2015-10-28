@@ -82,7 +82,8 @@ def make():
         if button=='Back':
             user=session['username']
             return render_template('home.html', user=user)
-        util.add("%s.db"%title,user,content)
+        util.add("%s"%title,user,content)
+        #.ds
         #Appears to be used to add posts, see Utils
         return redirect('/view/%s'%title)
         #Redirects to a post of the name that was added
@@ -102,7 +103,8 @@ def view(title=""):
     if request.method == "POST":
         form = request.form
         content = form['content']
-        util.add("%s.db"%title,user, content)
+        util.add("%s"%title,user, content)
+        #.db
         #not sure, either adds posts or comments
     posts = util.getposts(title)
     return render_template('view.html',user=user,title=title,posts=posts)
