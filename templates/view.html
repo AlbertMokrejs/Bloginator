@@ -7,8 +7,8 @@
 <table>
 {% for post in posts %}
 <tr>
-  <td class="content">{{post[1]}}</td>
-  <td class="author">By - {{post[0]}}</td>
+  <td class="content">{{post["content"]}}</td>
+  <td class="author">By - {{post["user"]}}</td>
 </tr>
 {% endfor %}
 </table><br>
