@@ -5,7 +5,7 @@ from os import listdir
 from os.path import isfile, join
 import md5 
 
-def add(filename, username, content):
+def add(filename, username, content, NUMID):
 #        if not isfile(join('tables/',filename)):
  #               file = open('tables/' + filename, 'w+')
   #              new = sqlite3.connect('tables/' + filename)
@@ -18,7 +18,7 @@ def add(filename, username, content):
 # !A!
         conn = MongoClient()
         c = conn["main"]
-        q = {'user':username, 'content':content}
+        q = {'user':username, 'content':content, 'NUMID':NUMID}
         c[filename].insert(q)
 #not really sure what this method is for, might work though.
 #it requires not making a new file, but instead makes a new table in. 
