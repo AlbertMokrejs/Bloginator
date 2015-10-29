@@ -5,11 +5,14 @@
 {% block body %}
 <div>{{title}}</div>
 <table>
+{% set x_x = 0 %}
 {% for post in posts %}
 {% if post["NUMID"] == 0 %}
+{% set x_x = 1 %}
+{% if x_x != 1 %}
 
  {{post["content"] | safe }}
-
+{% endif %}
 {% endif %}
 {% if post["NUMID"] > 0 %}
 
