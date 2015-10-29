@@ -74,7 +74,7 @@ def register(uname,pword):
 def getposts(title):
     conn = MongoClient()
     c = conn["main"]
-    info = c[title].find({"user": True, "content":True, "_id":False})
+    info = c[title].find()
     return info
         #{"user": True, "content":True, "_id":False}
         #might be broken, no idea. No idea what the heck all these things do. Assuming it is supposed to find a specific post, it might work with !A!.
