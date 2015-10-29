@@ -8,7 +8,7 @@
 {% for post in posts %}
 {% if post["NUMID"] == 0 %}
 
- {{post["content"] | SAFE }}
+ {{post["content"] | safe }}
 
 {% endif %}
 {% if post["NUMID"] > 0 %}
