@@ -8,7 +8,7 @@
 {% for post in posts %}
 {% if post["NUMID"] == 0 %}
 
-{{post["content"]}}
+ {{post["content"] | SAFE }}
 
 {% endif %}
 {% if post["NUMID"] > 0 %}
@@ -17,6 +17,7 @@
   <td class="content">{{post["content"]}}</td>
   <td class="author">By - {{post["user"]}}</td>
 </tr>
+
 {% endif %}
 {% endfor %}
 </table><br>
