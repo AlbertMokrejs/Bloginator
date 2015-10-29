@@ -6,6 +6,10 @@
 {% block body %}
 <form class="loginform" method = "POST">
   <br>
+    {%if error %}
+      <h3>{{err}}</h3>
+      <br>
+    {% endif %}
   <div>Login</div><br>
 	Username:<input type = "text" name = "username" placeholder="Username"></input><br><br>
 	Password:<input type = "password" name = "password" placeholder="Password"></input><br><br>
