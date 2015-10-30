@@ -12,13 +12,13 @@ table{
   border: 3px solid black;
   align:center;
   width:100%;
-  border:1;
+  border:2;
 }
 
 td{
   align:center;
   border:groove;
-  padding:10px;
+  padding:5px; /* makes height */
 }
 
 err{
@@ -34,7 +34,7 @@ div{
 }
 
 .add{
-  padding:20px;
+  padding:2px;
   width:70%;
   height:40%;
 }
