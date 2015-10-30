@@ -9,8 +9,13 @@
 {% for post in posts %}
 {% if post["NUMID"] == 0 %}
 {% if x_x != 1 %}
-
- {{post["content"] | safe }}
+  <table>
+    <tr>
+      <td>
+  {{post["content"] | safe }}
+      </td>
+    </tr>
+  </table>
 {% endif %}
 {% set x_x = 1 %}
 {% endif %}
