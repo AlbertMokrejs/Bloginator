@@ -4,7 +4,6 @@
 {% endblock %}
 {% block body %}
 <div>{{title}}</div>
-<table>
 {% set x_x = 0 %}
 {% for post in posts %}
 {% if post["NUMID"] == 0 %}
@@ -19,6 +18,7 @@
 {% endif %}
 {% set x_x = 1 %}
 {% endif %}
+<table>
 {% if post["NUMID"] > 0 %}
 
 <tr>
