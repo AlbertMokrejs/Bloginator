@@ -1,7 +1,7 @@
 /* I assume that   stylebody class="login"    refers to the .login here */
 body {
 
-  background-color: #B6B6B4;
+  background-color: #1AC5FF;
   font-size:24;
   font-family:sans-serif;
   font: Arial;
@@ -29,7 +29,7 @@ err{
 div{
   text-align:center;
   font-size-adjust:none;
-  font-size:44; /* changing this number doesn't change the size of the letter... How misleading */
+  font-size: 200%; /* changing this number doesn't change the size of the letter... How misleading */
   color:green; /* at least this can be changed */
 }
 
@@ -45,10 +45,10 @@ div{
   color:green;
 }
 
-.login{
+<! --.login{
   background-image: url('quill.png');
 }
-
+-->
 .icon{
   padding-left:60px; /* from the left, how much indent */
   length:100px; /* self explainatory for both */

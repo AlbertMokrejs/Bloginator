@@ -6,11 +6,11 @@
   <title>{% block title %}{% endblock %}</title>
   {% block head %}{% endblock %}
 </head>
-<body {% block stylebody %}{% endblock %}>
+<body {% block stylebody %}{% endblock %} align="center" style="font-size:350%" >
   <a href="/home">
     <img class="icon" src="{{ url_for('static', filename='icon.jpg') }}">
   </a>
-  <h3 align="center" style="font-size:350%"> {{user}} </h3>
+  {{user}}
   {% block body %}{% endblock %} 
 </body>
 </html>
