@@ -73,7 +73,7 @@ def make():
         user=session['username']
         if button=='Back':
             user=session['username']
-            return render_template('home.html', user=user)
+            return render_template('home.html', user=user, posts=util.gettitles())
         util.add("%s"%title,user,content,0)
         return redirect('/view/%s'%title)
     if verify():
