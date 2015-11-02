@@ -2,7 +2,7 @@
 
 By Ari, Rong, and Albert. 
 
-The majority of mongo code refactoring was done by running the website and using it until evident errors were found, at which point a small change would be pushed and retested. This is the reason for the slew of tiny, rapid, commits by one person as we'd get about a commit a minute from tiny changes in the code as everyone suggested solution to test.
+The majority of the Mongo code refactoring was done as a group in class. We editted the code together on Albert's machine and then Ari and Rong pulled and ran the editted code to check for errors. This process was repeated over and over again until we found no errors. This is the reason for the slew of tiny, rapid, commits by one person (Albert) as we'd get about a commit a minute from tiny changes in the code as everyone suggested solutions to test. 
 
 Usernames and passwords are stored on a local text file and are lightly encrypted (we think). 
 
