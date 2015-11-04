@@ -2,13 +2,18 @@
 {% block title %}
   Welcome!
 {% endblock %}
+{% block stylebody %}class="login"{% endblock %}
 {% block body %}
-
-<form class="login" action="/login" method = "POST">
-  <div> Login? </div>
-	Username:<input type = "text" name = "username" placeholder="Username"></input><br>
-  Password:<input type = "password" name = "password" placeholder="Password"></input><br>
+<form class="loginform" method = "POST">
+  <br>
+    {%if error %}
+      <h3>{{err}}</h3>
+      <br>
+    {% endif %}
+  <div>Login</div><br>
+	Username:<input type = "text" name = "username" placeholder="Username"></input><br><br>
+	Password:<input type = "password" name = "password" placeholder="Password"></input><br><br>
 	<input type="submit" name="button" value="Login"></input>
-	<input type="submit" name="button" value="Cancel"></input>
+	<input type="submit" name="button" value="Register"></input>
 </form>
 {% endblock %}
